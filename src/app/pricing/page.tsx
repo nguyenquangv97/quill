@@ -1,3 +1,4 @@
+'use client'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import UpgradeButton from '@/components/UpgradeButton'
 import { buttonVariants } from '@/components/ui/button'
@@ -17,10 +18,14 @@ import {
   Minus,
 } from 'lucide-react'
 import Link from 'next/link'
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 
-const Page = async () => {
-  const { getUser } = getKindeServerSession()
-  const user = await getUser()
+
+const Page = () => {
+  // const { getUser } = getKindeServerSession()
+  // const user = await getUser()
+
+  const {user} = useKindeBrowserClient();
 
   const pricingItems = [
     {

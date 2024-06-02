@@ -9,6 +9,7 @@ import {
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import UserAccountNav from './UserAccountNav';
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
   const { user, isLoading } = useKindeBrowserClient();
@@ -21,7 +22,7 @@ const Navbar = () => {
             <span>quill.</span>
           </Link>
 
-          {/* add mobile navbar */}
+          <MobileNav isAuth={!!user} /> 
           <div className="hidden items-center space-x-4 sm:flex">
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />

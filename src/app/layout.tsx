@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <Suspense>
+      {/* <Suspense> */}
         <Providers>
           <body
             className={cn(
@@ -37,7 +37,7 @@ export default function RootLayout({
             {children}
           </body>
         </Providers>
-      </Suspense>
+      {/* </Suspense> */}
     </html>
   );
 }
