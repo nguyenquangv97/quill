@@ -87,6 +87,11 @@ export const appRouter = router({
     return { url: stripeSession.url };
   }),
 
+  getUserSubscription: privateProcedure.query( async () => {
+    const subscriptionPlan = await getUserSubscriptionPlan();
+    return subscriptionPlan
+  }),
+
   getFileMessages: privateProcedure
     .input(
       z.object({
