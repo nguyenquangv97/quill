@@ -1,4 +1,3 @@
-'use server';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { redirect } from 'next/navigation';
 import { db } from '@/db';
@@ -10,7 +9,7 @@ const Page = async () => {
 
   // if no user id signed in
   if(!user || !user.id) {
-    redirect('/auth-callback?origin=dashboard')
+    redirect('/auth-callback')
   }
   const dbUser = await db.user.findFirst({
     where: {
@@ -20,10 +19,9 @@ const Page = async () => {
 
   // if user is not synced with the database
   if(!dbUser){
-    redirect('/auth-callback?origin=dashboard')
+    redirect('/auth-callback')
   }
   return <Dashboard />
-  // return <div>{typeof window}</div>
 }
 
 
